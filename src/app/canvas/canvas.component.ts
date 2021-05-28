@@ -1,4 +1,5 @@
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { CONTEXT_NAME } from '@angular/compiler/src/render3/view/util';
 import { AfterViewInit, Component, OnInit, EventEmitter, Output, Input, ViewChild, ElementRef } from '@angular/core';
 
 
@@ -8,7 +9,7 @@ import { AfterViewInit, Component, OnInit, EventEmitter, Output, Input, ViewChil
   styleUrls: ['./canvas.component.css']
 })
 export class CanvasComponent implements OnInit {
-
+  
   constructor() { }
   ngOnInit(): void {
     var c:any = document.getElementById("canvas");
@@ -31,12 +32,7 @@ export class CanvasComponent implements OnInit {
     drawing(x,y);
 }
   }
-  function onClick() {
-    console.log("clicked");
-    var c:any = document.getElementById("clrw");
-    ctx.clearRect(0, 0, 600, 400);
-  }
- 
+  
 function noDraw() { 
   draw = false;
 }
@@ -59,7 +55,16 @@ ctx.stroke();
 lastX = x;
 lastY = y;
 }
-  }   
-  
+}   
+   onClick() {
+    var c:any = document.getElementById("canvas");
+    var ctx:any = c.getContext("2d");
+    var r:number = 1; // draw radius
+    ctx.lineWidth = r * 2;
+    ctx.lineCap = "round";
+    ctx.fillStyle = "black";
+    var c:any = document.getElementById("clrw");
+    ctx.clearRect(0, 0, 600, 400);
+  }
 
   }

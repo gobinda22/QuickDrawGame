@@ -4,7 +4,7 @@
         text-align: center;
         font-weight: bold;
         color:aliceblue;
-        font-size:60px;
+        font-size:70px;
         border: 10px;
          margin: 108px;
          padding: 50px;
@@ -19,23 +19,26 @@
             }
     .btn_1{
        
-        padding: 7px 119px;
+        padding: 14px 119px;
         border: 2px solid greenyellow;
         color:black;
         font-size: 25px;
         border-radius: 50px;
         background-color:rgb(236, 190, 38);
-        
+        font-style: italic;
+        font-variant: small-caps;
+        font-weight: bolder;
     }
     .btn_2{
         
-        padding: 7px 64px;
+        padding: 14px 58px;
         border: 2px solid greenyellow;
          color: greenyellow;
         font-size: 25px;;
         border-radius: 50px;
-        
-       
+        font-style: italic;
+        font-variant: small-caps;
+        font-weight: bolder;
     }
     .btn_1:hover{
         background-color: transparent;
