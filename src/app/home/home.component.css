@@ -6,13 +6,15 @@
         color:aliceblue;
         font-size:70px;
         border: 10px;
-         margin: 108px;
+         /* margin: 108px; */
+         margin-top: 108px;
+         margin-bottom: 97px;
          padding: 50px;
     }    
     .button {
               text-align: center;
               transition-duration: 0.4s;
-              padding: 23px;
+              padding-bottom: 55px;
               border-radius: 23px;
               cursor: pointer;
               margin-left: -6px;
@@ -33,7 +35,7 @@
         
         padding: 14px 58px;
         border: 2px solid greenyellow;
-         color: greenyellow;
+        color: greenyellow;
         font-size: 25px;;
         border-radius: 50px;
         font-style: italic;

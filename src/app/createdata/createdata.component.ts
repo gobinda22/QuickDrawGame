@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+
+import { HttpClient } from '@angular/common/http'
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -8,8 +10,14 @@ import { environment } from '../../environments/environment';
 })
 export class CreatedataComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
+  @ViewChild('canvas') public canvasEl?: ElementRef;
+
+  className: string = ""
+
+  image = ""
+  result = ''
   ngOnInit(): void {
     var c:any = document.getElementById("canvas");
     var ctx:any = c.getContext("2d");
@@ -39,7 +47,26 @@ function noDraw() {
 document.addEventListener("mousemove",mouseMove);
 document.addEventListener("mousedown",yesDraw);
 document.addEventListener("mouseup",noDraw);
-
+document.addEventListener("touchmove", function (e) {
+  var touch = e.touches[0];
+  e.preventDefault();
+  e.stopPropagation();
+  var mouseEvent = new MouseEvent("mousemove", {
+    clientX: touch.clientX,
+    clientY: touch.clientY
+  });
+  document.dispatchEvent(mouseEvent);
+}, false);
+document.addEventListener("touchstart", function (e) {
+  var touch = e.touches[0];
+  e.preventDefault();
+  e.stopPropagation();
+  var mouseEvent = new MouseEvent("mousedown", {
+    clientX: touch.clientX,
+    clientY: touch.clientY
+  });
+  document.dispatchEvent(mouseEvent);
+}, false)
 
 function drawing(x:any, y:any) {
 if(lineStart){
@@ -64,6 +91,23 @@ lastY = y;
     ctx.fillStyle = "black";
     var c:any = document.getElementById("clrw");
     ctx.clearRect(0, 0, 600, 400);
-
    }
-  }
+  test(){
+    var canvas:HTMLCanvasElement = this.canvasEl?.nativeElement;
+    var date = Date.now();
+    var filename = this.className + '_' + date + '.png';
+    var image = canvas.toDataURL("images/png");
+    this.http.post(
+        environment.SERVER_URL + '/testing',
+        {image, className: this.className},
+        {responseType:'text'}
+        ).subscribe((res: any)=>{
+          console.log('result =', res)
+          this.result = 'It is a ' +res;
+          this.onClick();
+        })    
+  } 
+ 
+  
+    
+}

@@ -1,0 +1,10 @@
+.btn-class {
+    width: 100%;
+    font-weight: 550;
+}
+
+.btn-class:focus{
+    color: black;
+    background-color: rgb(255, 208, 0);
+    font-weight: bold;
+}

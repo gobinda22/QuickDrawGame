@@ -2,7 +2,7 @@
     <div class="row">
       <div class="col-lg-3 pl-5">
        <p class="back">
-         <a routerLink="" routerLinkActive="active" style="text-decoration: none; color: rgb(255, 255, 255); cursor:pointer;" href="C:\Users\Gobinda\Desktop\project\page1.html">
+         <a routerLink="" routerLinkActive="active" style="text-decoration: none; color: rgb(255, 255, 255); cursor:pointer;">
          &larr; Back
          </a>
         </p>
@@ -31,7 +31,7 @@
          
         <div class="col-md canvas text-center ">
          <p class="Draw text-center">Draw Inside this canvas</p>
-         <canvas id="canvas" width="400" height="370"></canvas> 
+         <canvas #canvas id="canvas" width="400" height="370"></canvas> 
         </div>
         
         <div class="col-lg-4">  
@@ -44,14 +44,16 @@
              <div class="col mx-3 mt-5 choose-cata "></div>
            </div>
            <div class="row">
-             <div class="col mx-3 mt-3 choose-cata "></div>
+             <div class="col mx-3 mt-3 choose-cata ">
+               <h4 class="test_result">{{result}}</h4>
+             </div>
              <div class="col mx-3 mt-3 choose-cata "></div>
            </div>
            <div class="row">  
              <div class="col mx-3 mt-5 "></div>
              <div class="col mx-3 mt-5 "></div>
            </div>             
-           <p class="confirm p-2 py-3 mt-5 " style="cursor: pointer;">Confirm Selection</p>
+           <p class="confirm p-2 py-3 mt-5 " style="cursor: pointer;"(click)="test()">Confirm Selection</p>
            <p id="clrw" class="clear py-3 mt-3" style="cursor: pointer;" (click)="onClick()">Clear Canvas</p>
            </div>
   </div>

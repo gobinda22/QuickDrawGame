@@ -2,7 +2,7 @@
     <div class="row">
       <div class="col-lg-3 pl-5">
        <p class="back">
-         <a routerLink="" routerLinkActive="active" style="text-decoration: none; color: rgb(255, 255, 255); cursor:pointer;" href="C:\Users\Gobinda\Desktop\project\page1.html">
+         <a routerLink="" routerLinkActive="active" style="text-decoration: none; color: rgb(255, 255, 255); cursor:pointer;" >
          &larr; Back
          </a>
         </p>
@@ -21,11 +21,11 @@
      
         <div class="col-md canvas text-center ">
          <p class="Draw">Draw inside this canvas</p>
-         <canvas id="canvas" width="400" height="370"></canvas> 
+         <canvas id="canvas" #canvas width="400" height="370"></canvas> 
         </div>
         <div class="col-lg-4">
           <p class="choose py-3">Choose from the labels</p>
-          <div class="row">
+          <!-- <div class="row">
             <div class="col mx-3 mt-3 choose-cata btn btn-outline-warning">Sun</div>
             <div class="col mx-3 mt-3 choose-cata btn btn-outline-warning">Flower</div>
           </div>
@@ -36,11 +36,15 @@
           <div class="row">
             <div class="col mx-3 mt-5 choose-cata btn btn-outline-warning">House</div>
             <div class="col mx-3 mt-5 choose-cata btn btn-outline-warning">Spoon</div>
+          </div> -->
+          <app-btn (classname)="getClass($event)"></app-btn>
+           
+       <p class="confirm py-3 mt-5" style="cursor: pointer;" (click)="saveImage()">Confirm Selection</p>
+       <p id="clrw" class="clear py-3 mt-3" style="cursor: pointer;" (click)="onClick()" >Clear Canvas</p>
           </div>
         
          
-       <p class="confirm py-3 mt-5" style="cursor: pointer;">Confirm Selection</p>
-       <p id="clrw" class="clear py-3 mt-3" style="cursor: pointer;" (click)="onClick()" >Clear Canvas</p>
+   
            </div>
   </div>
-   </div>
+  

@@ -67,6 +67,11 @@
   .clear:hover{
     background-color: rgb(139, 9, 35);
   }
+  .test_result{
+    font-size: 20px;
+    color: aliceblue;
+    
+  }
   @media screen and (max-width:600px){
         .back{
           margin-left: -47px;

@@ -5,17 +5,21 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CanvasComponent } from './canvas/canvas.component';
 import { CreatedataComponent } from './createdata/createdata.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BtnComponent } from './btn/btn.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CanvasComponent,
-    CreatedataComponent
+    CreatedataComponent,
+    BtnComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
